@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.example.adylanrff.kultivafarmer.CustomViewPager
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/view_pager">
+        </com.example.adylanrff.kultivafarmer.CustomViewPager>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/home_tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="70dp">
+
+            <android.support.design.widget.TabItem
+                android:id="@+id/home_tab_item"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Home"/>
+
+            <android.support.design.widget.TabItem
+                android:id="@+id/fav_tab_item"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Transaksi"/>
+
+            <android.support.design.widget.TabItem
+                android:id="@+id/trans_tab_item"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Saldo"/>
+
+            <android.support.design.widget.TabItem
+                android:id="@+id/profil_tab_item"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Profil"/>
+
+        </android.support.design.widget.TabLayout>
+
+    </FrameLayout>
+
+
+</RelativeLayout>
