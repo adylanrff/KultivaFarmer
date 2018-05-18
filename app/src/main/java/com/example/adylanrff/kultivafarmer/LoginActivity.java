@@ -1,5 +1,6 @@
 package com.example.adylanrff.kultivafarmer;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.Typeface;
@@ -25,6 +26,11 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
@@ -63,6 +69,19 @@ public class LoginActivity extends AppCompatActivity {
                         public void onResponse(JSONObject response) {
                             try {
                                 if (response.getBoolean("status")) {
+                                    String filename = "session";
+                                    String fileContents = response.getString("session_id");
+                                    FileOutputStream outputStream;
+
+                                    try {
+                                        outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
+                                        outputStream.write(fileContents.getBytes());
+                                        outputStream.close();
+                                    } catch (FileNotFoundException e) {
+                                        e.printStackTrace();
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    }
                                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                     startActivity(intent);
                                 }
@@ -144,6 +163,21 @@ public class LoginActivity extends AppCompatActivity {
                         try {
                             if (response.get("session_id") != null) {
                                 session.setAuth(response.getString("session_id"));
+
+                                String filename = "session";
+                                String fileContents = response.getString("session_id");
+                                FileOutputStream outputStream;
+
+                                try {
+                                    outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
+                                    outputStream.write(fileContents.getBytes());
+                                    outputStream.close();
+                                } catch (FileNotFoundException e) {
+                                    e.printStackTrace();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+
                                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                 startActivity(intent);
                             }
