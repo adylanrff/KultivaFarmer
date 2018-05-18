@@ -4,11 +4,80 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Home" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp"
+                android:paddingBottom="12dp"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp"
+                android:elevation="3dp">
+
+                <TextView
+                    android:id="@+id/title_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:text="KULTIVA"
+                    android:textColor="#039703"
+                    android:textSize="28sp"/>
+
+                <ImageView
+                    android:id="@+id/notification_image"
+                    android:layout_width="32dp"
+                    android:tint="#039703"
+                    android:layout_height="32dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="right"
+                    android:src="@drawable/ic_action_name"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Saldo Anda"
+                android:textStyle="bold"
+                android:textSize="20sp"/>
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textAlignment="textEnd"
+                android:text="Rp 150.000"
+                tools:ignore="RtlCompat" />
+        </LinearLayout>
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/crops_rv"
+            android:layout_width="match_parent"
+            android:layout_height="400dp">
+
+        </android.support.v7.widget.RecyclerView>
+    </LinearLayout>
+
+
 
 </FrameLayout>

@@ -1,5 +1,6 @@
 package com.example.adylanrff.kultivafarmer;
 
+import android.graphics.Color;
 import android.net.Uri;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -16,9 +17,12 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         // Find id
         viewPager = findViewById(R.id.view_pager);
         tabLayout = findViewById(R.id.home_tab_layout);
+        tabLayout.setTabTextColors(Color.parseColor("#8A000000"), Color.parseColor("#65B73B"));
+
         final PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
 
         viewPager.setAdapter(adapter);
